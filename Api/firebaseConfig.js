@@ -1,3 +1,6 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
 // Import the functions you need from the SDKs you need
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -16,12 +19,30 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = firebase.initializeApp( firebaseConfig );
-const db = firebase.firestore();
+const app = initializeApp( firebaseConfig );
+const db = getFirestore( app );
 
 
 
-export async function getData( data ) {
+export async function getData( collectionName ) {
+    const collectionRef = collection( db, collectionName );
+    const querySnapshot = await getDocs( collectionRef );
+    const data = [];
+    querySnapshot.forEach( ( doc ) => {
+        data.push( { id: doc.id, ...doc.data() } );
+    } );
+    return data;
 }
-export async function postData( data ) {
+
+export async function postData( collectionName, data ) {
+    try {
+        const collectionRef = collection( db, collectionName );
+        const docRef = await addDoc( collectionRef, data );
+        console.log( 'Colección guardada en Firebase correctamente.' );
+        return docRef.id;
+    } catch ( error ) {
+        console.error( 'Error al guardar la colección en Firebase:', error );
+        throw error;
+    }
+
 }
