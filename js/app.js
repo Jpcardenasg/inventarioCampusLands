@@ -1,3 +1,7 @@
+import '/App/Components/navMenu/menu.js';
+import '/App/Components/formularios/formPersona.js';
+import '/App/Components/formularios/formActivo.js';
+
 import { fetchData } from "../Api/fetch-api.js";
 import { getData, postData } from "../Api/firebaseConfig.js";
 
