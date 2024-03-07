@@ -48,12 +48,14 @@ export class formActivo extends HTMLElement {
                 <div class="col-md-6">
                     <label for="marca" class="form-label">Marca</label>
                     <select class="form-select" id="marca">
+                    <option selected disabled value="">Seleccione una opción</option>
                         ${selectMarcas}
                     </select>
                 </div>
                 <div class="col-md-6">
                     <label for="categoria" class="form-label">Categoría</label>
                     <select class="form-select" id="categoria">
+                    <option selected disabled value="">Seleccione una opción</option>
                         ${selectCategorias}
                     </select>
                 </div>
@@ -62,6 +64,7 @@ export class formActivo extends HTMLElement {
                 <div class="col-md-6">
                     <label for="tipo" class="form-label">Tipo</label>
                     <select class="form-select" id="tipo">
+                    <option selected disabled value="">Seleccione una opción</option>
                         ${selectTiposActivos}
                     </select>
                 </div>
@@ -74,6 +77,7 @@ export class formActivo extends HTMLElement {
                 <div class="col-md-6">
                     <label for="proveedor" class="form-label">Proveedor</label>
                     <select class="form-select" id="proveedor">
+                    <option selected disabled value="">Seleccione una opción</option>
                         <option value="1">Proveedor 1</option>
                         <option value="2">Proveedor 2</option>
                         <option value="3">Proveedor 3</option>

@@ -26,10 +26,10 @@ export class asideMenu extends HTMLElement {
                     <span>Personas</span>
                 </a>
                 <ul id="personas" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item">
+                    <li class="sidebar-item" id="crearPersona">
                         <a href="#" class="sidebar-link">Crear</a>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item" id="buscarPersona">
                         <a href="#" class="sidebar-link">Buscar</a>
                     </li>
                 </ul>
@@ -41,10 +41,10 @@ export class asideMenu extends HTMLElement {
                       <span>Activo</span>
                   </a>
                   <ul id="activos" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                      <li class="sidebar-item">
+                      <li class="sidebar-item" id="crearActivo">
                           <a href="#" class="sidebar-link">Crear</a>
                       </li>
-                      <li class="sidebar-item">
+                      <li class="sidebar-item" id="buscarActivo">
                           <a href="#" class="sidebar-link">Buscar</a>
                       </li>
                   </ul>
