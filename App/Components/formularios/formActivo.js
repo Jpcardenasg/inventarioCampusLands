@@ -1,9 +1,36 @@
+import { ColeccionesSimples } from "../../../js/classes.js";
+
+
 export class formActivo extends HTMLElement {
-    constructor() {
+    constructor () {
         super();
         this.render();
     }
-    render() {
+    async render() {
+
+        const marcas = new ColeccionesSimples( 'marcas', 'marcas' );
+        const listaMarcas = await marcas.get();
+        const selectMarcas = selectOptions( listaMarcas );
+
+        const categorias = new ColeccionesSimples( 'categorias', 'categorias' );
+        const listaCategorias = await categorias.get();
+        const selectCategorias = selectOptions( listaCategorias );
+
+        const tiposActivos = new ColeccionesSimples( 'tipoActivos', 'tipos_activos' );
+        const listaTiposActivos = await tiposActivos.get();
+        const selectTiposActivos = selectOptions( listaTiposActivos );
+
+        const estados = new ColeccionesSimples( 'estados', 'estados' );
+        const listaEstados = await estados.get();
+        const selectEstados = selectOptions( listaEstados );
+
+        function selectOptions( lista ) {
+            return lista.map( item => {
+                return `<option value="${item.id}">${item.nombre}</option>`;
+            } ).join( '' );
+        }
+
+
         this.innerHTML = /* html */`
         <h1 class="mb-4">Crear Activo</h1>
         <form>
@@ -21,19 +48,13 @@ export class formActivo extends HTMLElement {
                 <div class="col-md-6">
                     <label for="marca" class="form-label">Marca</label>
                     <select class="form-select" id="marca">
-                        <option value="1">Marca 1</option>
-                        <option value="2">Marca 2</option>
-                        <option value="3">Marca 3</option>
-                        <!-- Agrega más opciones según sea necesario -->
+                        ${selectMarcas}
                     </select>
                 </div>
                 <div class="col-md-6">
                     <label for="categoria" class="form-label">Categoría</label>
                     <select class="form-select" id="categoria">
-                        <option value="1">Categoría 1</option>
-                        <option value="2">Categoría 2</option>
-                        <option value="3">Categoría 3</option>
-                        <!-- Agrega más opciones según sea necesario -->
+                        ${selectCategorias}
                     </select>
                 </div>
             </div>
@@ -41,10 +62,7 @@ export class formActivo extends HTMLElement {
                 <div class="col-md-6">
                     <label for="tipo" class="form-label">Tipo</label>
                     <select class="form-select" id="tipo">
-                        <option value="1">Tipo 1</option>
-                        <option value="2">Tipo 2</option>
-                        <option value="3">Tipo 3</option>
-                        <!-- Agrega más opciones según sea necesario -->
+                        ${selectTiposActivos}
                     </select>
                 </div>
                 <div class="col-md-6">
@@ -75,10 +93,7 @@ export class formActivo extends HTMLElement {
                 <div class="col-md-6">
                     <label for="estado" class="form-label">Estado</label>
                     <select class="form-select" id="estado">
-                        <option value="1">Estado 1</option>
-                        <option value="2">Estado 2</option>
-                        <option value="3">Estado 3</option>
-                        <!-- Agrega más opciones según sea necesario -->
+                        ${selectEstados}
                     </select>
                 </div>
             </div>
@@ -87,4 +102,4 @@ export class formActivo extends HTMLElement {
       `;
     }
 }
-customElements.define("form-activo", formActivo);
+customElements.define( "form-activo", formActivo );

@@ -1,5 +1,5 @@
 export class asideMenu extends HTMLElement {
-    constructor() {
+    constructor () {
         super();
         this.render();
     }
@@ -18,29 +18,29 @@ export class asideMenu extends HTMLElement {
               </div>
           </div>
           <ul class="sidebar-nav">
-  
+
               <li class="sidebar-item">
-              <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                  data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                  <i class="lni lni-user"></i>
-                  <span>Personas</span>
-              </a>
-              <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                  <li class="sidebar-item">
-                      <a href="#" class="sidebar-link">Crear</a>
-                  </li>
-                  <li class="sidebar-item">
-                      <a href="#" class="sidebar-link">Buscar</a>
-                  </li>
-              </ul>
-          </li>
+                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#personas" aria-expanded="false" aria-controls="personas">
+                    <i class="lni lni-user"></i>
+                    <span>Personas</span>
+                </a>
+                <ul id="personas" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Crear</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Buscar</a>
+                    </li>
+                </ul>
+              </li>
               <li class="sidebar-item">
                   <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                      data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                      data-bs-target="#activos" aria-expanded="false" aria-controls="activos">
                       <i class="lni lni-agenda"></i>
                       <span>Activo</span>
                   </a>
-                  <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                  <ul id="activos" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                       <li class="sidebar-item">
                           <a href="#" class="sidebar-link">Crear</a>
                       </li>
@@ -52,11 +52,11 @@ export class asideMenu extends HTMLElement {
 
               <li class="sidebar-item">
                   <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                      data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                      data-bs-target="#marcas" aria-expanded="false" aria-controls="marcas">
                       <i class="lni lni-agenda"></i>
                       <span>Marcas</span>
                   </a>
-                  <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                  <ul id="marcas" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                       <li class="sidebar-item">
                           <a href="#" class="sidebar-link">Crear</a>
                       </li>
@@ -68,11 +68,11 @@ export class asideMenu extends HTMLElement {
 
               <li class="sidebar-item">
                   <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                      data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                      data-bs-target="#asignacion" aria-expanded="false" aria-controls="asignacion">
                       <i class="lni lni-agenda"></i>
                       <span>Asignación</span>
                   </a>
-                  <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                  <ul id="asignacion" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                       <li class="sidebar-item">
                           <a href="#" class="sidebar-link">Crear</a>
                       </li>
@@ -88,7 +88,7 @@ export class asideMenu extends HTMLElement {
                       <i class="lni lni-agenda"></i>
                       <span>Marcas</span>
                   </a>
-                  <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                  <ul id="auth" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                       <li class="sidebar-item">
                           <a href="#" class="sidebar-link">Crear</a>
                       </li>
@@ -104,7 +104,7 @@ export class asideMenu extends HTMLElement {
                       <i class="lni lni-protection"></i>
                       <span>Auth</span>
                   </a>
-                  <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                  <ul id="auth" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                       <li class="sidebar-item">
                           <a href="#" class="sidebar-link">Login</a>
                       </li>
@@ -132,4 +132,4 @@ export class asideMenu extends HTMLElement {
       `;
     }
 }
-customElements.define("aside-menu", asideMenu);
+customElements.define( "aside-menu", asideMenu );
