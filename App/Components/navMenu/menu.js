@@ -17,6 +17,7 @@ export class asideMenu extends HTMLElement {
                   <a href="#">CAMPUSLANDS</a>
               </div>
           </div>
+
           <ul class="sidebar-nav">
 
               <li class="sidebar-item">
@@ -34,6 +35,7 @@ export class asideMenu extends HTMLElement {
                     </li>
                 </ul>
               </li>
+
               <li class="sidebar-item">
                   <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                       data-bs-target="#activos" aria-expanded="false" aria-controls="activos">
@@ -52,12 +54,28 @@ export class asideMenu extends HTMLElement {
 
               <li class="sidebar-item">
                   <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                      data-bs-target="#categorias" aria-expanded="false" aria-controls="categorias">
+                      <i class="lni lni-agenda"></i>
+                      <span>Categorias</span>
+                  </a>
+                  <ul id="categorias" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                      <li class="sidebar-item" id="crearCategoria">
+                          <a href="#" class="sidebar-link">Crear</a>
+                      </li>
+                      <li class="sidebar-item">
+                          <a href="#" class="sidebar-link">Buscar</a>
+                      </li>
+                  </ul>
+              </li>
+
+              <li class="sidebar-item">
+                  <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                       data-bs-target="#marcas" aria-expanded="false" aria-controls="marcas">
                       <i class="lni lni-agenda"></i>
                       <span>Marcas</span>
                   </a>
                   <ul id="marcas" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                      <li class="sidebar-item">
+                      <li class="sidebar-item" id="crearMarca">
                           <a href="#" class="sidebar-link">Crear</a>
                       </li>
                       <li class="sidebar-item">
@@ -82,51 +100,7 @@ export class asideMenu extends HTMLElement {
                   </ul>
               </li>
 
-              <li class="sidebar-item">
-                  <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                      data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                      <i class="lni lni-agenda"></i>
-                      <span>Marcas</span>
-                  </a>
-                  <ul id="auth" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                      <li class="sidebar-item">
-                          <a href="#" class="sidebar-link">Crear</a>
-                      </li>
-                      <li class="sidebar-item">
-                          <a href="#" class="sidebar-link">Buscar</a>
-                      </li>
-                  </ul>
-              </li>
-
-              <li class="sidebar-item">
-                  <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                      data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                      <i class="lni lni-protection"></i>
-                      <span>Auth</span>
-                  </a>
-                  <ul id="auth" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                      <li class="sidebar-item">
-                          <a href="#" class="sidebar-link">Login</a>
-                      </li>
-                      <li class="sidebar-item">
-                          <a href="#" class="sidebar-link">Register</a>
-                      </li>
-                  </ul>
-              </li>
               
-              <li class="sidebar-item">
-                  <a href="#" class="sidebar-link">
-                      <i class="lni lni-popup"></i>
-                      <span>Notification</span>
-                  </a>
-              </li>
-              <li class="sidebar-item">
-                  <a href="#" class="sidebar-link">
-                      <i class="lni lni-cog"></i>
-                      <span>Setting</span>
-                  </a>
-              </li>
-          </ul>
           
       </aside>
       `;

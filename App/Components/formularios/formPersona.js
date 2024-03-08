@@ -22,8 +22,8 @@ export class formPersona extends HTMLElement {
                     <div class="mb-3">
                         <label for="tipoPersona" class="form-label">Tipo de Persona</label>
                         <select class="form-select" id="tipoPersona">
-                            <option value="natural">Natural</option>
-                            <option value="juridica">Jurídica</option>
+                            <option value="1">Natural</option>
+                            <option value="2">Jurídica</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Crear Persona</button>
