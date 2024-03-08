@@ -1,4 +1,4 @@
-import { ColeccionesSimples } from "../../../js/classes.js";
+import { Activo, Persona, ColeccionesSimples } from "../../../js/classes.js";
 
 
 export class formActivo extends HTMLElement {
@@ -24,6 +24,12 @@ export class formActivo extends HTMLElement {
         const listaEstados = await estados.get();
         const selectEstados = selectOptions( listaEstados );
 
+        const personas = new Persona( {} );
+        const listaPersonas = await personas.get();
+        const selectPersonas = listaPersonas.map( persona => {
+            return `<option value="${persona.id}">${persona.nombre} || ${persona.identificacion}</option>`;
+        } );
+
         function selectOptions( lista ) {
             return lista.map( item => {
                 return `<option value="${item.id}">${item.nombre}</option>`;
@@ -33,7 +39,7 @@ export class formActivo extends HTMLElement {
 
         this.innerHTML = /* html */`
         <h1 class="mb-4">Crear Activo</h1>
-        <form>
+        <form id="formularioActivo">
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="codigoTransaccion" class="form-label">Código de Transacción</label>
@@ -78,10 +84,7 @@ export class formActivo extends HTMLElement {
                     <label for="proveedor" class="form-label">Proveedor</label>
                     <select class="form-select" id="proveedor">
                     <option selected disabled value="">Seleccione una opción</option>
-                        <option value="1">Proveedor 1</option>
-                        <option value="2">Proveedor 2</option>
-                        <option value="3">Proveedor 3</option>
-                        <!-- Agrega más opciones según sea necesario -->
+                        ${selectPersonas}
                     </select>
                 </div>
                 <div class="col-md-6">
@@ -104,6 +107,54 @@ export class formActivo extends HTMLElement {
             <button type="submit" class="btn btn-primary">Crear Activo</button>
         </form>
       `;
+
+
+        const codigoTransaccion = document.getElementById( 'codigoTransaccion' );
+        const numeroFormulario = document.getElementById( 'numeroFormulario' );
+        const marcaSelect = document.getElementById( 'marca' );
+        const categoriaSelect = document.getElementById( 'categoria' );
+        const tipoActivoSelect = document.getElementById( 'tipo' );
+        const valorUnitario = document.getElementById( 'valorUnitario' );
+        const proveedorSelect = document.getElementById( 'proveedor' );
+        const serial = document.getElementById( 'numeroSerial' );
+        const empresaResponsable = document.getElementById( 'empresaResponsable' );
+        const estadoSelect = document.getElementById( 'estado' );
+        const formularioActivo = document.getElementById( 'formularioActivo' );
+
+        formularioActivo.addEventListener( 'submit', async ( event ) => {
+            event.preventDefault();
+
+            const codigoTransaccionValue = codigoTransaccion.value;
+            const marcaValue = marcaSelect.value;
+            const numeroFormularioValue = numeroFormulario.value;
+            const categoriaSelectValue = categoriaSelect.value;
+            const tipoActivoSelectValue = tipoActivoSelect.value;
+            const valorUnitarioValue = valorUnitario.value;
+            const proveedorSelectValue = proveedorSelect.value;
+            const serialValue = serial.value;
+            const empresaResponsableValue = empresaResponsable.value;
+            const estadoSelectValue = estadoSelect.value;
+
+            const activo = {
+                "transaccion": codigoTransaccionValue,
+                "formulario": numeroFormularioValue,
+                "idMarca": marcaValue,
+                "idCategoria": categoriaSelectValue,
+                "idTipo": tipoActivoSelectValue,
+                "valorUnitario": valorUnitarioValue,
+                "idProveedor": proveedorSelectValue,
+                "serial": serialValue,
+                "empresa": empresaResponsableValue,
+                "idEstado": estadoSelectValue,
+            };
+
+            const nuevoActivo = new Activo( activo );
+            await nuevoActivo.post( activo );
+
+            formularioActivo.reset();
+        } );
+
+
     }
 }
 customElements.define( "form-activo", formActivo );

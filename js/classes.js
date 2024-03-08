@@ -3,7 +3,6 @@ import { getData, postData } from "../Api/firebaseConfig.js";
 
 
 const INVENTORY_URL = '/data/invetoryCampusLands.json';
-
 const inventoryData = await fetchData( INVENTORY_URL );
 
 // Clase base para POST y GET de los datos en firebase
@@ -39,35 +38,24 @@ export class CRUDColeccionesFirebase {
 export class Activo extends CRUDColeccionesFirebase {
     constructor ( data ) {
         super( 'activos' );
-        this.item = data.item;
         this.transaccion = data.codigoTransaccion;
         this.formulario = data.formulario;
-        this.empresa = data.empresa;
-        this.fechaCompra = data.fechaCompra;
-        this.nit = data.nit;
-        this.proveedor = data.proveedor;
-        this.descripcionItem = data.descripcionItem;
+        this.idMarca = data.idMarca;
+        this.idCategoria = data.idCategoria;
+        this.idTipo = data.idTipo;
+        this.valorUnitario = data.valorUnitario;
+        this.idProveedor = data.idProveedor;
         this.serial = data.serial;
-        this.categoria = data.categoria;
-        this.cantidad = data.cantidad;
-        this.ubicacion = data.ubicacion;
+        this.empresa = data.empresa;
+        this.idEstado = data.idEstado;
     }
 }
-// inventoryData.forEach( async ( itemData ) => {
-//     try {
-//         const activo = new Activo( itemData );
-//         await activo.post( itemData );
-//     } catch ( error ) {
-//         console.error( 'Error al guardar el activo en Firebase:', error );
-//     }
-// } );
 
 
 export class ManejoInventario extends CRUDColeccionesFirebase {
     constructor ( coleccion ) {
         super( coleccion );
     }
-
     async mostrarInventario() {
         try {
             const items = await this.get();
@@ -79,20 +67,18 @@ export class ManejoInventario extends CRUDColeccionesFirebase {
         }
     }
 }
-// const categorias = new ManejoInventario( 'categorias' );
-// categorias.mostrarInventario();
 
 
 export class Persona extends CRUDColeccionesFirebase {
     constructor ( data ) {
         super( 'personas' );
-        this.id = data.id;
+        this.identificacion = data.identificacion;
         this.nombre = data.nombre;
         this.email = data.email;
-        this.tipo = data.tipo;
+        this.idTipo = data.idTipo;
     }
-
 }
+
 
 export class Asignacion extends CRUDColeccionesFirebase {
     constructor ( data ) {
@@ -101,13 +87,6 @@ export class Asignacion extends CRUDColeccionesFirebase {
         this.idPersona = data.idPersona;
     }
 }
-// let data = {
-//     "fecha": "12/29/1997",
-//     "idPersona": "1098803029"
-// };
-
-// const nuevaAsign = new Asignacion( data );
-// nuevaAsign.post( data );
 
 
 // Clase para manejar las colecciones que solo tienen la llave nombre
