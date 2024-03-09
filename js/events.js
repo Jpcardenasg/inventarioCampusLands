@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('formActivo').style.display = 'none';
         document.getElementById('formCategoria').style.display = 'none';
         document.getElementById('formMarca').style.display = 'none';
-
+        document.getElementById('formTipoActivo').style.display = 'none';
 
         document.getElementById('formPersona').style.display = 'block';
     });
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('formPersona').style.display = 'none';
         document.getElementById('formCategoria').style.display = 'none';
         document.getElementById('formMarca').style.display = 'none';
-
+        document.getElementById('formTipoActivo').style.display = 'none';
 
 
         document.getElementById('formActivo').style.display = 'block';
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('formPersona').style.display = 'none';
         document.getElementById('formActivo').style.display = 'none';
         document.getElementById('formMarca').style.display = 'none';
+        document.getElementById('formTipoActivo').style.display = 'none';
 
         const formNameElement = document.querySelector('form-name');
         if (formNameElement) {
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('formPersona').style.display = 'none';
         document.getElementById('formActivo').style.display = 'none';
         document.getElementById('formCategoria').style.display = 'none';
+        document.getElementById('formTipoActivo').style.display = 'none';
 
         const formNameElement = document.querySelector('form-name');
         if (formNameElement) {
@@ -58,5 +60,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('formMarca').style.display = 'block';
     });
+
+    document.getElementById('crearTipoAct').addEventListener('click', function () {
+        document.getElementById('principal').style.display = 'none';
+        document.getElementById('formPersona').style.display = 'none';
+        document.getElementById('formCategoria').style.display = 'none';
+        document.getElementById('formMarca').style.display = 'none';
+        document.getElementById('formActivo').style.display = 'none';
+
+
+        document.getElementById('formTipoActivo').style.display = 'block';
+    });
+
 
 });

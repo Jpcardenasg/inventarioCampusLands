@@ -39,7 +39,7 @@ export class asideMenu extends HTMLElement {
               <li class="sidebar-item">
                   <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                       data-bs-target="#activos" aria-expanded="false" aria-controls="activos">
-                      <i class="lni lni-agenda"></i>
+                      <i class="lni lni-layers"></i>
                       <span>Activo</span>
                   </a>
                   <ul id="activos" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -55,7 +55,7 @@ export class asideMenu extends HTMLElement {
               <li class="sidebar-item">
                   <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                       data-bs-target="#categorias" aria-expanded="false" aria-controls="categorias">
-                      <i class="lni lni-agenda"></i>
+                      <i class="lni lni-layout"></i>
                       <span>Categorias</span>
                   </a>
                   <ul id="categorias" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -85,9 +85,25 @@ export class asideMenu extends HTMLElement {
               </li>
 
               <li class="sidebar-item">
+              <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                  data-bs-target="#tipoAct" aria-expanded="false" aria-controls="marcas">
+                  <i class="lni lni-control-panel"></i>
+                  <span>Tipos de Activo</span>
+              </a>
+              <ul id="tipoAct" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                  <li class="sidebar-item" id="crearTipoAct">
+                      <a href="#" class="sidebar-link">Crear</a>
+                  </li>
+                  <li class="sidebar-item">
+                      <a href="#" class="sidebar-link">Buscar</a>
+                  </li>
+              </ul>
+          </li>
+
+              <li class="sidebar-item">
                   <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                       data-bs-target="#asignacion" aria-expanded="false" aria-controls="asignacion">
-                      <i class="lni lni-agenda"></i>
+                      <i class="lni lni-network"></i>
                       <span>Asignación</span>
                   </a>
                   <ul id="asignacion" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
