@@ -1,76 +1,25 @@
-// SIDE MENU: Despliega u oculta el menú lateral
-const hamBurger = document.querySelector( ".toggle-btn" );
+document.addEventListener( 'DOMContentLoaded', function () {
+    const toggleForms = ( formId ) => {
+        const formElements = document.querySelectorAll( '.form-element' );
+        formElements.forEach( formElement => {
+            if ( formElement.id === formId ) {
+                formElement.style.display = 'block';
+            } else {
+                formElement.style.display = 'none';
+            }
+        } );
+        document.getElementById( 'principal' ).style.display = 'none';
+    };
 
-hamBurger.addEventListener( "click", function () {
-    document.querySelector( "#sidebar" ).classList.toggle( "expand" );
+    document.querySelectorAll( '.selectItem' ).forEach( item => {
+        item.addEventListener( 'click', function () {
+            const formId = this.dataset.id;
+            toggleForms( formId );
+        } );
+    } );
+
+    const hamBurger = document.querySelector( '.toggle-btn' );
+    hamBurger.addEventListener( 'click', function () {
+        document.querySelector( '#sidebar' ).classList.toggle( 'expand' );
+    } );
 } );
-
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('crearPersona').addEventListener('click', function () {
-        document.getElementById('principal').style.display = 'none';
-        document.getElementById('formActivo').style.display = 'none';
-        document.getElementById('formCategoria').style.display = 'none';
-        document.getElementById('formMarca').style.display = 'none';
-        document.getElementById('formTipoActivo').style.display = 'none';
-
-        document.getElementById('formPersona').style.display = 'block';
-    });
-
-    document.getElementById('crearActivo').addEventListener('click', function () {
-        document.getElementById('principal').style.display = 'none';
-        document.getElementById('formPersona').style.display = 'none';
-        document.getElementById('formCategoria').style.display = 'none';
-        document.getElementById('formMarca').style.display = 'none';
-        document.getElementById('formTipoActivo').style.display = 'none';
-
-
-        document.getElementById('formActivo').style.display = 'block';
-    });
-
-    document.getElementById('crearCategoria').addEventListener('click', function () {
-        document.getElementById('principal').style.display = 'none';
-        document.getElementById('formPersona').style.display = 'none';
-        document.getElementById('formActivo').style.display = 'none';
-        document.getElementById('formMarca').style.display = 'none';
-        document.getElementById('formTipoActivo').style.display = 'none';
-
-        const formNameElement = document.querySelector('form-name');
-        if (formNameElement) {
-            formNameElement.setTitle("Crear Categoria");
-            formNameElement.setLabel("Nombre de categoria");
-            formNameElement.setPlaceholder("Ingrese el nombre de la categoría");
-        }
-
-        document.getElementById('formCategoria').style.display = 'block';
-    });
-
-    document.getElementById('crearMarca').addEventListener('click', function () {
-        document.getElementById('principal').style.display = 'none';
-        document.getElementById('formPersona').style.display = 'none';
-        document.getElementById('formActivo').style.display = 'none';
-        document.getElementById('formCategoria').style.display = 'none';
-        document.getElementById('formTipoActivo').style.display = 'none';
-
-        const formNameElement = document.querySelector('form-name');
-        if (formNameElement) {
-            formNameElement.setTitle("Crear Marca");
-            formNameElement.setLabel("Nombre de marca");
-            formNameElement.setPlaceholder("Ingrese el nombre de la marca");
-        }
-
-        document.getElementById('formMarca').style.display = 'block';
-    });
-
-    document.getElementById('crearTipoAct').addEventListener('click', function () {
-        document.getElementById('principal').style.display = 'none';
-        document.getElementById('formPersona').style.display = 'none';
-        document.getElementById('formCategoria').style.display = 'none';
-        document.getElementById('formMarca').style.display = 'none';
-        document.getElementById('formActivo').style.display = 'none';
-
-
-        document.getElementById('formTipoActivo').style.display = 'block';
-    });
-
-
-});

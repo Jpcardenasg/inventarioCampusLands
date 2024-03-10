@@ -92,8 +92,8 @@ export class Asignacion extends CRUDColeccionesFirebase {
 // Clase para manejar las colecciones que solo tienen la llave nombre
 // Categorias, Marcas, Estados, Tipo Persona, Tipos de activos
 export class ColeccionesSimples extends CRUDColeccionesFirebase {
-    constructor ( nombre, coleccion ) {
+    constructor ( data, coleccion ) {
         super( coleccion );
-        this.nombre = nombre;
+        this.nombre = data.nombre;
     }
 }

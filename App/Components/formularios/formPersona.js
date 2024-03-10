@@ -9,31 +9,32 @@ export class formPersona extends HTMLElement {
     }
     async render() {
 
-        this.innerHTML = /* html */`
-        <h1>Crear persona</h1>
-        <form id="formularioPersona">
-                    <div class="mb-3">
-                        <label for="identificacion" class="form-label">Cédula/NIT</label>
-                        <input type="text" class="form-control" id="identificacion" placeholder="Ingrese su Cédula/NIT">
-                    </div>
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre Completo</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese su Nombre Completo">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Ingrese su Email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="tipoPersona" class="form-label">Tipo de Persona</label>
-                        <select class="form-select" id="tipoPersona">
-                            <option value="1">Natural</option>
-                            <option value="2">Jurídica</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Crear Persona</button>
-                </form>
-      `;
+        this.innerHTML = `
+        
+            <h1>Crear persona</h1>
+            <form id="formularioPersona">
+                <div class="mb-3">
+                    <label for="identificacion" class="form-label">Cédula/NIT</label>
+                    <input type="text" class="form-control" id="identificacion" placeholder="Ingrese su Cédula/NIT" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese su Nombre Completo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Ingrese su Email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="tipoPersona" class="form-label">Tipo de Persona</label>
+                    <select class="form-select" id="tipoPersona">
+                        <option value="1">Natural</option>
+                        <option value="2">Jurídica</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Crear Persona</button>
+            </form>
+        `;
 
 
         const identificacion = document.getElementById( 'identificacion' );
