@@ -89,7 +89,7 @@ export class asideMenu extends HTMLElement {
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                         data-bs-target="#marcas" aria-expanded="false" aria-controls="marcas">
-                        <i class="lni lni-agenda"></i>
+                        <i class="lni lni-checkmark-circle"></i>
                         <span>Marcas</span>
                     </a>
                     <ul id="marcas" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -103,6 +103,28 @@ export class asideMenu extends HTMLElement {
                             <a href="#" class="sidebar-link">Eliminar</a>
                         </li>
                         <li class="sidebar-item selectItem" data-id="buscarForm" data-titulo="Marcas" data-coleccion="marcas">
+                            <a href="#" class="sidebar-link">Buscar</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#estados" aria-expanded="false" aria-controls="estados">
+                        <i class="lni lni-flag"></i>
+                        <span>Estados</span>
+                    </a>
+                    <ul id="estados" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item selectItem" data-id="formEstado">
+                            <a href="#" class="sidebar-link">Crear</a>
+                        </li>
+                        <li class="sidebar-item selectItem" data-id="editarForm" data-titulo="Estados" data-coleccion="estados">
+                            <a href="#" class="sidebar-link">Editar</a>
+                        </li>
+                        <li class="sidebar-item selectItem" data-id="eliminarForm" data-titulo="Estados" data-coleccion="estados">
+                            <a href="#" class="sidebar-link">Eliminar</a>
+                        </li>
+                        <li class="sidebar-item selectItem" data-id="buscarForm" data-titulo="Estados" data-coleccion="estados">
                             <a href="#" class="sidebar-link">Buscar</a>
                         </li>
                     </ul>
