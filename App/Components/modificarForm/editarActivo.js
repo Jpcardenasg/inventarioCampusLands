@@ -1,12 +1,18 @@
 import { Activo, Persona, ColeccionesSimples } from "../../../js/classes.js";
 
 
-export class formActivo extends HTMLElement {
+export class EditarActivo extends HTMLElement {
     constructor () {
         super();
         this.render();
     }
     async render() {
+
+        const activos = new Activo( {} );
+        const listaActivos = await activos.get();
+        const selectActivos = listaActivos.map( activo => {
+            return `<option value="${activo.id}">${activo.descripcion}</option>`;
+        } ).join( '' );
 
         const marcas = new ColeccionesSimples( {}, 'marcas' );
         const listaMarcas = await marcas.get();
@@ -40,9 +46,20 @@ export class formActivo extends HTMLElement {
 
 
         this.innerHTML = `
-        
-            <h1 class="mb-4">Crear Activo</h1>
-            <form id="formularioActivo">
+
+            <h1>Editar Activo</h1>
+            <form id="seleccionarActivo" class="row gap-3">
+                <div class="col-md-6">
+                    <label for="activo" class="form-label title">Seleccionar Activo</label>
+                    <select class="form-select" id="activo">
+                        <option selected disabled value="">Seleccione un activo</option>
+                        ${selectActivos}
+                    </select>
+                </div>
+            </form>
+
+            <h2 class="mt-4 mb-4">Editar</h2>
+            <form id="formularioEditarActivo">
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="codigoTransaccion" class="form-label">Código de Transacción</label>
@@ -103,70 +120,60 @@ export class formActivo extends HTMLElement {
                     <div class="col-md-6">
                         <label for="estado" class="form-label">Estado</label>
                         <select class="form-select" id="estado">
-                        <option selected disabled value="">Seleccione una opción</option>
                             ${selectEstados}
                         </select>
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                         <label for="descripcion" class="form-label">Descripción Activo</label>
-                        <input type="text" class="form-control" id="descripcion" placeholder="Mouse - Bodg50-9051-900-0017 GMR ESC" required>
+                        <input type="text" class="form-control" id="descripcion" placeholder="Ingrese descripción" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Crear Activo</button>
+                <button type="submit" class="btn btn-primary">Editar Activo</button>
             </form>
       `;
 
 
-        const codigoTransaccion = this.querySelector( '#codigoTransaccion' );
-        const numeroFormulario = this.querySelector( '#numeroFormulario' );
-        const marcaSelect = this.querySelector( '#marca' );
-        const categoriaSelect = this.querySelector( '#categoria' );
-        const tipoActivoSelect = this.querySelector( '#tipo' );
-        const valorUnitario = this.querySelector( '#valorUnitario' );
-        const proveedorSelect = this.querySelector( '#proveedor' );
-        const serial = this.querySelector( '#numeroSerial' );
-        const empresaResponsable = this.querySelector( '#empresaResponsable' );
-        const estadoSelect = this.querySelector( '#estado' );
-        const descripcion = this.querySelector( '#descripcion' );
-        const formularioActivo = this.querySelector( '#formularioActivo' );
+        const formularioEditarActivo = this.querySelector( '#formularioEditarActivo' );
+        const seleccionarActivo = this.querySelector( '#seleccionarActivo' );
 
-        formularioActivo.addEventListener( 'submit', async ( event ) => {
+        formularioEditarActivo.addEventListener( 'submit', async ( event ) => {
             event.preventDefault();
 
-            const codigoTransaccionValue = codigoTransaccion.value;
-            const marcaValue = marcaSelect.value;
-            const numeroFormularioValue = numeroFormulario.value;
-            const categoriaSelectValue = categoriaSelect.value;
-            const tipoActivoSelectValue = tipoActivoSelect.value;
-            const valorUnitarioValue = valorUnitario.value;
-            const proveedorSelectValue = proveedorSelect.value;
-            const serialValue = serial.value;
-            const empresaResponsableValue = empresaResponsable.value;
-            const estadoSelectValue = estadoSelect.value;
-            const descripcionValue = descripcion.value;
+            const activoSelectValue = this.querySelector( '#activo' ).value;
+            const codigoTransaccionValue = this.querySelector( '#codigoTransaccion' ).value;
+            const numeroFormularioValue = this.querySelector( '#numeroFormulario' ).value;
+            const marcaSelectValue = this.querySelector( '#marca' ).value;
+            const categoriaSelectValue = this.querySelector( '#categoria' ).value;
+            const tipoActivoSelectValue = this.querySelector( '#tipo' ).value;
+            const valorUnitarioValue = this.querySelector( '#valorUnitario' ).value;
+            const proveedorSelectValue = this.querySelector( '#proveedor' ).value;
+            const serialValue = this.querySelector( '#numeroSerial' ).value;
+            const empresaResponsableValue = this.querySelector( '#empresaResponsableEditar' ).value;
+            const estadoSelectValue = this.querySelector( '#estado' ).value;
+            const descripcionValue = this.querySelector( '#descripcion' ).value;
 
             const activo = {
                 "transaccion": codigoTransaccionValue,
                 "formulario": numeroFormularioValue,
-                "idMarca": marcaValue,
+                "idMarca": marcaSelectValue,
                 "idCategoria": categoriaSelectValue,
                 "idTipo": tipoActivoSelectValue,
                 "valorUnitario": valorUnitarioValue,
-                "idProveedor": personaIdentificacion,
                 "proveedor": proveedorSelectValue,
+                "idProveedor": personaIdentificacion,
                 "serial": serialValue,
                 "empresa": empresaResponsableValue,
                 "idEstado": estadoSelectValue,
                 "descripcion": descripcionValue
             };
 
-            const nuevoActivo = new Activo( activo );
-            await nuevoActivo.post( activo );
+            const activoEditado = new Activo( activo );
+            await activoEditado.update( activoSelectValue, activo );
 
-            formularioActivo.reset();
+            formularioEditarActivo.reset();
+            seleccionarActivo.reset();
         } );
-
 
     }
 }
-customElements.define( "form-activo", formActivo );
+customElements.define( "editar-activo", EditarActivo );

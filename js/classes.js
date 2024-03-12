@@ -1,9 +1,9 @@
 import { fetchData } from "../Api/fetch-api.js";
-import { getData, postData } from "../Api/firebaseConfig.js";
+import { getData, postData, updateData } from "../Api/firebaseConfig.js";
 
 
-const INVENTORY_URL = '/data/invetoryCampusLands.json';
-const inventoryData = await fetchData( INVENTORY_URL );
+// const INVENTORY_URL = '/data/invetoryCampusLands.json';
+// const inventoryData = await fetchData( INVENTORY_URL );
 
 // Clase base para POST y GET de los datos en firebase
 export class CRUDColeccionesFirebase {
@@ -11,7 +11,7 @@ export class CRUDColeccionesFirebase {
         this.coleccion = coleccion;
     }
 
-    // Método para crear datos en firebase, mediante postData
+    // Método para crear datos en Firebase, mediante postData
     async post( data ) {
         try {
             await postData( this.coleccion, data );
@@ -21,7 +21,8 @@ export class CRUDColeccionesFirebase {
             throw error;
         }
     }
-    // Método para obtener datos de firebase, mediante getData
+
+    // Método para obtener datos de Firebase, mediante getData
     async get() {
         try {
             const data = await getData( this.coleccion );
@@ -29,6 +30,17 @@ export class CRUDColeccionesFirebase {
             return data;
         } catch ( error ) {
             console.error( "Error al obtener datos de Firebase:", error );
+            throw error;
+        }
+    }
+
+    // Método para actualizar datos en Firebase, mediante updateData
+    async update( docId, newData ) {
+        try {
+            await updateData( this.coleccion, docId, newData );
+            console.log( 'Datos actualizados en Firebase correctamente.' );
+        } catch ( error ) {
+            console.error( "Error al actualizar datos en Firebase:", error );
             throw error;
         }
     }
@@ -45,9 +57,11 @@ export class Activo extends CRUDColeccionesFirebase {
         this.idTipo = data.idTipo;
         this.valorUnitario = data.valorUnitario;
         this.idProveedor = data.idProveedor;
+        this.proveedor = data.proveedor;
         this.serial = data.serial;
         this.empresa = data.empresa;
         this.idEstado = data.idEstado;
+        this.descripcion = data.descripcion;
     }
 }
 
@@ -60,7 +74,10 @@ export class ManejoInventario extends CRUDColeccionesFirebase {
         try {
             const items = await this.get();
             items.forEach( item => {
-                console.log( item );
+
+                for ( const [ key, value ] of Object.entries( item ) ) {
+
+                }
             } );
         } catch ( error ) {
             console.error( 'Error al obtener el inventario para mostrar:', error );

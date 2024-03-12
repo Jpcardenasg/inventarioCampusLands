@@ -28,8 +28,8 @@ export class formPersona extends HTMLElement {
                 <div class="mb-3">
                     <label for="tipoPersona" class="form-label">Tipo de Persona</label>
                     <select class="form-select" id="tipoPersona">
-                        <option value="1">Natural</option>
-                        <option value="2">Jurídica</option>
+                        <option value="Natural">Natural</option>
+                        <option value="Jurídica">Jurídica</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Crear Persona</button>
@@ -37,11 +37,11 @@ export class formPersona extends HTMLElement {
         `;
 
 
-        const identificacion = document.getElementById( 'identificacion' );
-        const nombre = document.getElementById( 'nombre' );
-        const email = document.getElementById( 'email' );
-        const tipoPersona = document.getElementById( 'tipoPersona' );
-        const formularioPersona = document.getElementById( 'formularioPersona' );
+        const identificacion = this.querySelector( '#identificacion' );
+        const nombre = this.querySelector( '#nombre' );
+        const email = this.querySelector( '#email' );
+        const tipoPersona = this.querySelector( '#tipoPersona' );
+        const formularioPersona = this.querySelector( '#formularioPersona' );
 
 
         formularioPersona.addEventListener( 'submit', async ( event ) => {

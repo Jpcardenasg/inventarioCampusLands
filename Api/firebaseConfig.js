@@ -44,5 +44,16 @@ export async function postData( collectionName, data ) {
         console.error( 'Error al guardar la colección en Firebase:', error );
         throw error;
     }
+}
 
+export async function updateData( collectionName, docId, newData ) {
+    try {
+        const docRef = doc( db, collectionName, docId );
+        await updateDoc( docRef, newData );
+        console.log( 'Documento actualizado en Firebase correctamente.' );
+        return docId;
+    } catch ( error ) {
+        console.error( 'Error al actualizar el documento en Firebase:', error );
+        throw error;
+    }
 }
