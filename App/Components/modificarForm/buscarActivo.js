@@ -23,7 +23,10 @@ export class BuscarActivo extends HTMLElement {
                         ${selectActivos}
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Buscar</button>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary w-auto">Buscar</button>
+                </div>
+
             </form>
             <div id="infoActivo" style="display: none;">
             </div>

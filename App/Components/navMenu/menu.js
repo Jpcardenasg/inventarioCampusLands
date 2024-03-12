@@ -33,7 +33,7 @@ export class asideMenu extends HTMLElement {
                         <li class="sidebar-item selectItem" data-id="editarPersona">
                             <a href="#" class="sidebar-link">Editar</a>
                         </li>
-                        <li class="sidebar-item selectItem" data-id="eliminarForm">
+                        <li class="sidebar-item selectItem" data-id="eliminarForm" data-titulo="Personas" data-coleccion="personas">
                             <a href="#" class="sidebar-link">Eliminar</a>
                         </li>
                         <li class="sidebar-item selectItem" data-id="buscarPersona">
@@ -55,7 +55,7 @@ export class asideMenu extends HTMLElement {
                         <li class="sidebar-item selectItem" data-id="editarActivo">
                             <a href="#" class="sidebar-link">Editar</a>
                         </li>
-                        <li class="sidebar-item selectItem" data-id="eliminarForm">
+                        <li class="sidebar-item selectItem" data-id="eliminarForm" data-titulo="Activos" data-coleccion="activos">
                             <a href="#" class="sidebar-link">Eliminar</a>
                         </li>
                         <li class="sidebar-item selectItem" data-id="buscarActivo">
@@ -77,7 +77,7 @@ export class asideMenu extends HTMLElement {
                         <li class="sidebar-item selectItem" data-id="editarForm" data-titulo="Categorías" data-coleccion="categorias">
                             <a href="#" class="sidebar-link">Editar</a>
                         </li>
-                        <li class="sidebar-item selectItem" data-id="eliminarForm">
+                        <li class="sidebar-item selectItem" data-id="eliminarForm" data-titulo="Categorías" data-coleccion="categorias">
                             <a href="#" class="sidebar-link">Eliminar</a>
                         </li>
                         <li class="sidebar-item selectItem" data-id="buscarForm" data-titulo="Categorías" data-coleccion="categorias">
@@ -99,7 +99,7 @@ export class asideMenu extends HTMLElement {
                         <li class="sidebar-item selectItem" data-id="editarForm" data-titulo="Marcas" data-coleccion="marcas">
                             <a href="#" class="sidebar-link">Editar</a>
                         </li>
-                        <li class="sidebar-item selectItem" data-id="eliminarForm">
+                        <li class="sidebar-item selectItem" data-id="eliminarForm" data-titulo="Marcas" data-coleccion="marcas">
                             <a href="#" class="sidebar-link">Eliminar</a>
                         </li>
                         <li class="sidebar-item selectItem" data-id="buscarForm" data-titulo="Marcas" data-coleccion="marcas">
@@ -121,7 +121,7 @@ export class asideMenu extends HTMLElement {
                         <li class="sidebar-item selectItem" data-id="editarForm" data-titulo="Tipos de Activos" data-coleccion="tipos_activos">
                             <a href="#" class="sidebar-link">Editar</a>
                         </li>
-                        <li class="sidebar-item selectItem" data-id="eliminarForm">
+                        <li class="sidebar-item selectItem" data-id="eliminarForm" data-titulo="Tipos de Activos" data-coleccion="tipos_activos">
                             <a href="#" class="sidebar-link">Eliminar</a>
                         </li>
                         <li class="sidebar-item selectItem" data-id="buscarForm" data-titulo="Tipos de Activos" data-coleccion="tipos_activos">
@@ -138,16 +138,13 @@ export class asideMenu extends HTMLElement {
                     </a>
                     <ul id="asignacion" class="ps-5 sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item selectItem" data-id="crearAsignacion">
-                            <a href="#" class="sidebar-link">Crear</a>
+                            <a href="#" class="sidebar-link">Crear Folio</a>
                         </li>
-                        <li class="sidebar-item selectItem" data-id="editarForm" data-titulo="Asignación" data-coleccion="asignaciones">
-                            <a href="#" class="sidebar-link">Editar</a>
+                        <li class="sidebar-item selectItem" data-id="asignarActivo">
+                            <a href="#" class="sidebar-link">Asignar Activo</a>
                         </li>
-                        <li class="sidebar-item selectItem" data-id="eliminarForm">
-                            <a href="#" class="sidebar-link">Eliminar</a>
-                        </li>
-                        <li class="sidebar-item selectItem" data-id="buscarForm" data-titulo="Asignación" data-coleccion="asignaciones">
-                            <a href="#" class="sidebar-link">Buscar</a>
+                        <li class="sidebar-item selectItem" data-id="retornarActivo">
+                            <a href="#" class="sidebar-link">Retornar Activo</a>
                         </li>
                     </ul>
                 </li>

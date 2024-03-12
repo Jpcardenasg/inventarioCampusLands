@@ -46,7 +46,7 @@ export class EditarPersona extends HTMLElement {
                         <option value="2">Jurídica</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Editar Persona</button>
+                <button type="submit" class="btn btn-primary w-auto">Editar Persona</button>
             </form>
         `;
 

@@ -21,6 +21,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
             toggleForms( formId );
             document.querySelector( 'form-editar' ).render( titulo, coleccion );
             document.querySelector( 'form-buscar' ).render( titulo, coleccion );
+            document.querySelector( 'form-eliminar' ).render( titulo, coleccion );
         } );
     } );
 

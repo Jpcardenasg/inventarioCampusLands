@@ -23,7 +23,10 @@ export class BuscarPersona extends HTMLElement {
                         ${selectPersonas}
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Buscar</button>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary w-auto">Buscar</button>
+                </div>
+
             </form>
             <div id="infoPersona" style="display: none;">
             </div>

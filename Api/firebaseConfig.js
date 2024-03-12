@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 // Import the functions you need from the SDKs you need
 
@@ -54,6 +54,18 @@ export async function updateData( collectionName, docId, newData ) {
         return docId;
     } catch ( error ) {
         console.error( 'Error al actualizar el documento en Firebase:', error );
+        throw error;
+    }
+}
+
+export async function deleteData( collectionName, docId ) {
+    try {
+        const docRef = doc( db, collectionName, docId );
+        await deleteDoc( docRef );
+        console.log( 'Documento eliminado de Firebase correctamente.' );
+        return docId;
+    } catch ( error ) {
+        console.error( 'Error al eliminar el documento de Firebase:', error );
         throw error;
     }
 }

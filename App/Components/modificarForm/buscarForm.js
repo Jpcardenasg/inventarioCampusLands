@@ -28,7 +28,10 @@ export class BuscarForm extends HTMLElement {
                         ${selectItems}
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Buscar</button>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary mt-3 w-auto">Buscar</button>
+                </div>
+                
             </form>
             <div id="info" style="display: none;">
             </div>

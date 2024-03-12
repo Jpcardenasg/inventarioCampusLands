@@ -10,6 +10,7 @@ import '/App/Components/modificarForm/editarPersona.js';
 import '/App/Components/modificarForm/buscarForm.js';
 import '/App/Components/modificarForm/buscarActivo.js';
 import '/App/Components/modificarForm/buscarPersona.js';
+import '/App/Components/modificarForm/eliminarForm.js';
 import '/js/classes.js';
 import '/js/events.js';
 

@@ -1,5 +1,5 @@
 import { fetchData } from "../Api/fetch-api.js";
-import { getData, postData, updateData } from "../Api/firebaseConfig.js";
+import { getData, postData, updateData, deleteData } from "../Api/firebaseConfig.js";
 
 
 // const INVENTORY_URL = '/data/invetoryCampusLands.json';
@@ -41,6 +41,17 @@ export class CRUDColeccionesFirebase {
             console.log( 'Datos actualizados en Firebase correctamente.' );
         } catch ( error ) {
             console.error( "Error al actualizar datos en Firebase:", error );
+            throw error;
+        }
+    }
+
+    // Método para eliminar datos en Firebase, mediante deleteData
+    async delete( docId ) {
+        try {
+            await deleteData( this.coleccion, docId );
+            console.log( 'Dato eliminado de Firebase correctamente.' );
+        } catch ( error ) {
+            console.error( "Error al eliminar dato en Firebase:", error );
             throw error;
         }
     }
